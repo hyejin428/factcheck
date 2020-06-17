@@ -1,0 +1,498 @@
+      
+      <v-flex lg6>
+        <v-layout column class="pa-10" v-scroll:#scroll-target="onScroll">
+          <h3 class="display-1 pa-3">
+              뉴스 주제
+          </h3>
+
+          <v-bottom-navigation
+            :value="activeBtn"
+            color="blue"
+            grow
+            flat
+          >
+            <v-btn class="title">주제1</v-btn>
+            <v-btn class="title">주제2</v-btn>
+            <v-btn class="title">주제3</v-btn>
+            <v-btn class="title">주제4</v-btn>
+
+          </v-bottom-navigation>
+
+          <h3 class="display-1 pa-3">
+              기사 모음
+          </h3>
+          <v-card>
+            <v-tabs
+              v-model="tab"
+              background-color="primary"
+              dark
+            >
+              <v-tab
+                v-for="item in items_title"
+                :key="item.tab"
+              >
+                {{ item.tab }}
+              </v-tab>
+            </v-tabs>
+            <v-container
+              id="scroll-target"
+              style="max-height: 400px"
+              class="overflow-y-auto"
+            >
+              <v-tabs-items v-model="tab"
+                v-scroll:#scroll-target="onScroll"
+                style="height: 1000px">
+                <v-tab-item
+                  v-for="(item, i) in lineTest"
+                    :key="i"
+                >
+                  <v-card flat>
+                    <v-card-text v-html="item.content"></v-card-text>
+                  </v-card>
+                </v-tab-item>
+              </v-tabs-items>
+            </v-container>
+          </v-card>
+
+          <h3 class="display-1 pa-3">
+            댓글 모음
+          </h3>
+
+          <v-card>
+            <v-tabs
+            v-model="tab2"
+            background-color="primary"
+            dark
+            >
+              <v-tab>좋아요 순</v-tab>
+              <v-tab>댓글 순</v-tab>
+              <v-tab>공감비율 순</v-tab>
+              <v-tab>감정 순</v-tab>
+
+            </v-tabs>
+
+            <v-container
+            id="scroll-target"
+            style="max-height: 400px"
+            class="overflow-y-auto"
+            >
+            <v-tabs-items v-model="tab2"
+              v-scroll:#scroll-target="onScroll"
+              style="height: 1000px">
+              <!-- 좋아요순 -->
+              <v-tab-item>
+                <v-card flat>
+                <v-list dense shaped>
+                  <!-- <template v-for="(item,idx) in item1.reply"> -->
+                  <template v-for="(item) in like_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    >
+                    <v-list-item-avatar>
+                      <v-icon>mdi-emoticon</v-icon>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item['reply']"></v-list-item-title>
+                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <div>
+                      <v-btn class="ma-2" text icon color="blue lighten-2">
+                        <v-icon>mdi-thumb-up</v-icon>
+                      </v-btn>
+                      {{item['like_num']}}
+                      <v-btn class="ma-2" text icon color="red lighten-2">
+                        <v-icon>mdi-thumb-down</v-icon>
+                      </v-btn>
+                      {{item['hate_num']}}
+                    </div>
+                    </v-list-item>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- 댓글순 -->
+              <v-tab-item>
+                <v-card flat>
+                <v-list dense shaped>
+                  <!-- <template v-for="(item,idx) in item1.reply"> -->
+                  <template v-for="(item) in reply_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    >
+                    <v-list-item-avatar>
+                      <v-icon>mdi-emoticon</v-icon>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item['reply']"></v-list-item-title>
+                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <div>
+                      <v-btn class="ma-2" text icon color="blue lighten-2">
+                        <v-icon>mdi-thumb-up</v-icon>
+                      </v-btn>
+                      {{item['like_num']}}
+                      <v-btn class="ma-2" text icon color="red lighten-2">
+                        <v-icon>mdi-thumb-down</v-icon>
+                      </v-btn>
+                      {{item['hate_num']}}
+                    </div>
+                    </v-list-item>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- 공감비율순 -->
+              <v-tab-item>
+                <v-card flat>
+                <v-list dense shaped>
+                  <!-- <template v-for="(item,idx) in item1.reply"> -->
+                  <template v-for="(item) in like_rate_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    >
+                    <v-list-item-avatar>
+                      <v-icon>mdi-emoticon</v-icon>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item['reply']"></v-list-item-title>
+                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <div>
+                      <v-btn class="ma-2" text icon color="blue lighten-2">
+                        <v-icon>mdi-thumb-up</v-icon>
+                      </v-btn>
+                      {{item['like_num']}}
+                      <v-btn class="ma-2" text icon color="red lighten-2">
+                        <v-icon>mdi-thumb-down</v-icon>
+                      </v-btn>
+                      {{item['hate_num']}}
+                    </div>
+                    </v-list-item>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- 감정순 -->
+              <v-tab-item>
+                <v-card flat>
+                <v-list dense shaped>
+                  <!-- <template v-for="(item,idx) in item1.reply"> -->
+                  <template v-for="(item) in sent_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    >
+                    <v-list-item-avatar>
+                      <v-icon>mdi-emoticon</v-icon>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item['reply']"></v-list-item-title>
+                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <div>
+                      <v-btn class="ma-2" text icon color="blue lighten-2">
+                        <v-icon>mdi-thumb-up</v-icon>
+                      </v-btn>
+                      {{item['like_num']}}
+                      <v-btn class="ma-2" text icon color="red lighten-2">
+                        <v-icon>mdi-thumb-down</v-icon>
+                      </v-btn>
+                      {{item['hate_num']}}
+                    </div>
+                    </v-list-item>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+            </v-tabs-items>
+            </v-container>
+          </v-card>
+
+          <GChart id="gg"
+            type="ScatterChart"
+            :data="chartData"
+            :options="chartOptions"
+            :events="chartEvents"
+            ref="gChart"
+          />
+
+        </v-layout>
+      </v-flex>
+
+      <v-flex lg6>
+        <v-layout column class="pa-5">
+          <!-- <h3 class="display-1 pa-3">
+              Veracity Check
+          </h3> -->
+          <!-- <v-flex row>
+            <v-text-field
+              label="Outlined"
+              single-line
+              outlined
+              placeholder="기사 본문의 문장을 입력해주세요"
+            ></v-text-field>
+            <v-btn color="primary" dark x-large class="pa-3">Check</v-btn>
+          </v-flex> -->
+          <!-- <v-flex row>
+            <h3 class="body-1 pa-3">
+                결과:
+            </h3>
+            <v-card>
+              <h3 class="body-1 pa-3">
+                  40%
+              </h3>
+            </v-card>
+          </v-flex> -->
+
+          <h3 class="display-1 pa-3 mt-5">
+              지식 그래프 시각화
+          </h3>
+          <!-- <v-flex row>
+            <v-text-field
+              label="Outlined"
+              single-line
+              outlined
+              placeholder="검색을 원하는 단어를 입력해주세요"
+            ></v-text-field>
+            <v-btn color="primary" dark x-large class="pa-3">Check</v-btn>
+          </v-flex> -->
+          <label> Node size  </label>
+          <input type="range" min="1" max="100" v-model='nodeSize' /> {{ options.nodeSize }}
+          <label> force </label>
+          <input type="range" min="100" max="3000" v-model='force' /> {{ options.force }}
+
+          <div id="app">
+            <!-- <svg @click="setZoom" class="container" :width="viewer.w" :height="viewer.h" ref="svg">
+              <g :transform="`translate(${zoom.x},${zoom.y})scale(${zoom.k})`">
+                <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
+              </g>
+               <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
+            </svg> -->
+            <d3-network ref='net' :net-nodes="dyn_node" :net-links="dyn_link" :options="options"  :link-cb="lcb"/>
+            <!-- <d3-network ref='net' :net-nodes="sampleNode" :net-links="sampleLink" :options="options"  :link-cb="lcb"/> -->
+          </div>
+
+          <GChart id="pie0"
+            type="PieChart"
+            :data="pieData"
+            :options="pieOption"
+            style="width: 50px; height: 50px;"
+          />
+
+            
+          <h3 class="display-1 pa-3">
+              댓글 분석 결과 보기
+          </h3>
+
+          <template>
+            <v-data-table dense 
+            v-model="select"
+            :headers="headers"
+            :items="data"
+            :single-select="singleSelect"
+            item-key="nickname"
+            class="elevation-1"
+          >
+            </v-data-table>
+          </template>
+
+          <template>
+            <v-data-table dense 
+            v-model="select"
+            :headers="headers2"
+            :items="data2"
+            :single-select="singleSelect"
+            item-key="nickname"
+            class="elevation-1"
+            light
+          >
+            </v-data-table>
+          </template>
+
+          <div></div>
+
+          <v-card class="mt-10">
+            <v-tabs
+              v-model="tab4"
+              background-color="primary"
+              dark
+            >
+              <v-tab
+                v-for="item in items4"
+                :key="item.tab"
+              >
+                {{ item.tab }}
+              </v-tab>
+            </v-tabs>
+
+            <v-tabs-items v-model="tab4">
+              <v-tab-item
+                v-for="item in items4"
+                :key="item.tab"
+              >
+                <v-card flat>
+                  <v-card-text>{{ item.content }}</v-card-text>
+                </v-card>
+              </v-tab-item>
+            </v-tabs-items>
+          </v-card>
+
+          <v-card
+            color="blue-grey darken-1"
+            dark
+            :loading="isUpdating"
+          >
+            <template v-slot:progress>
+              <v-progress-linear
+                absolute
+                color="green lighten-3"
+                height="4"
+                indeterminate
+              ></v-progress-linear>
+            </template>
+              <v-row>
+                <!-- <v-col
+                  class="text-right"
+                  cols="12"
+                >
+                  <v-menu
+                    bottom
+                    left
+                    transition="slide-y-transition"
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-btn
+                        icon
+                        v-on="on"
+                      >
+                        <v-icon>mdi-dots-vertical</v-icon>
+                      </v-btn>
+                    </template>
+                    <v-list>
+                      <v-list-item @click="isUpdating = true">
+                        <v-list-item-action>
+                          <v-icon>mdi-settings</v-icon>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                          <v-list-item-title>Update</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-col> -->
+                <!-- <v-row
+                  class="pa-4"
+                  align="center"
+                  justify="center"
+                >
+                  <v-col class="text-center">
+                    <h3 class="headline">{{ name }}</h3>
+                    <span class="grey--text text--lighten-1">{{ title }}</span>
+                  </v-col>
+                </v-row> -->
+              </v-row>
+            <v-form>
+              <v-container>
+                <v-row>
+                  <!-- <v-col
+                    cols="12"
+                    md="6"
+                  >
+                    <v-text-field
+                      v-model="name"
+                      :disabled="isUpdating"
+                      filled
+                      color="blue-grey lighten-2"
+                      label="Name"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    md="6"
+                  >
+                    <v-text-field
+                      v-model="title"
+                      :disabled="isUpdating"
+                      filled
+                      color="blue-grey lighten-2"
+                      label="Title"
+                    ></v-text-field>
+                  </v-col> -->
+                  <v-col cols="12">
+                    <v-autocomplete
+                      v-model="friends"
+                      :disabled="isUpdating"
+                      :items="people"
+                      filled
+                      chips
+                      color="blue-grey lighten-2"
+                      label="Select"
+                      item-text="name"
+                      item-value="name"
+                      multiple
+                    >
+                      <template v-slot:selection="data">
+                        <v-chip
+                          v-bind="data.attrs"
+                          :input-value="data.selected"
+                          close
+                          @click="data.select"
+                          @click:close="remove(data.item)"
+                        >
+                          <!-- <v-avatar left>
+                            <v-img :src="data.item.avatar"></v-img>
+                          </v-avatar> -->
+                          {{ data.item.name }}
+                        </v-chip>
+                      </template>
+                      <template v-slot:item="data">
+                        <template v-if="typeof data.item !== 'object'">
+                          <v-list-item-content v-text="data.item"></v-list-item-content>
+                        </template>
+                        <template v-else>
+                          <!-- <v-list-item-avatar>
+                            <img :src="data.item.avatar">
+                          </v-list-item-avatar> -->
+                          <v-list-item-content>
+                            <v-list-item-title v-html="data.item.name"></v-list-item-title>
+                            <v-list-item-subtitle v-html="data.item.group"></v-list-item-subtitle>
+                          </v-list-item-content>
+                        </template>
+                      </template>
+                    </v-autocomplete>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-form>
+            <!-- <v-divider></v-divider>
+            <v-card-actions>
+              <v-switch
+                v-model="autoUpdate"
+                :disabled="isUpdating"
+                class="mt-0"
+                color="green lighten-2"
+                hide-details
+                label="Auto Update"
+              ></v-switch>
+              <v-spacer></v-spacer>
+              <v-btn
+                :disabled="autoUpdate"
+                :loading="isUpdating"
+                color="blue-grey darken-3"
+                depressed
+                @click="isUpdating = true"
+              >
+                <v-icon left>mdi-update</v-icon>
+                Update Now
+              </v-btn>
+            </v-card-actions> -->
+          </v-card>
+        </v-layout>
+      </v-flex>

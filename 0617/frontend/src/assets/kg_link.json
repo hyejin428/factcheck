@@ -1,0 +1,770 @@
+﻿[
+	{
+		"sid": 1,
+		"tid": 2,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 3,
+		"tid": 4,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 5,
+		"tid": 6,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 7,
+		"tid": 8,
+		"name": "소문이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 9,
+		"tid": 10,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 11,
+		"tid": 12,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 13,
+		"tid": 14,
+		"name": "예방효과 없다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 15,
+		"tid": 16,
+		"name": "높인다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 17,
+		"tid": 18,
+		"name": "소문이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 19,
+		"tid": 20,
+		"name": "방역 방법이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 21,
+		"tid": 22,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 23,
+		"tid": 24,
+		"name": "얻는다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 25,
+		"tid": 26,
+		"name": "불린다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 27,
+		"tid": 28,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 29,
+		"tid": 30,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 31,
+		"tid": 32,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 33,
+		"tid": 34,
+		"name": "에 존재할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 35,
+		"tid": 36,
+		"name": "를 통해 침투할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 37,
+		"tid": 38,
+		"name": "을 통해 침투할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 39,
+		"tid": 40,
+		"name": "감염될 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 41,
+		"tid": 42,
+		"name": "전염되지 않는다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 43,
+		"tid": 44,
+		"name": "살아남기 힘들다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 45,
+		"tid": 46,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 47,
+		"tid": 48,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 49,
+		"tid": 50,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 51,
+		"tid": 52,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 53,
+		"tid": 54,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 55,
+		"tid": 56,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 57,
+		"tid": 58,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 59,
+		"tid": 60,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 61,
+		"tid": 62,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 63,
+		"tid": 64,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 65,
+		"tid": 66,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 67,
+		"tid": 68,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 69,
+		"tid": 70,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 71,
+		"tid": 72,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 73,
+		"tid": 74,
+		"name": "줄어드는 추세이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 75,
+		"tid": 76,
+		"name": "소문이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 77,
+		"tid": 78,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 79,
+		"tid": 80,
+		"name": "역학적 증명되었다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 81,
+		"tid": 82,
+		"name": "증명된 사례 없다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 83,
+		"tid": 84,
+		"name": "으로 알려져 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 85,
+		"tid": 86,
+		"name": "가능하다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 87,
+		"tid": 88,
+		"name": "에게 전파될 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 89,
+		"tid": 90,
+		"name": "에게 전파될 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 91,
+		"tid": 92,
+		"name": "유래했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 93,
+		"tid": 94,
+		"name": "유전자 유사성 89.1%이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 95,
+		"tid": 96,
+		"name": "원인이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 97,
+		"tid": 98,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 99,
+		"tid": 100,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 101,
+		"tid": 102,
+		"name": "원인이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 103,
+		"tid": 104,
+		"name": "아직 모른다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 105,
+		"tid": 106,
+		"name": "관리한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 107,
+		"tid": 108,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 109,
+		"tid": 110,
+		"name": "관리한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 111,
+		"tid": 112,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 113,
+		"tid": 114,
+		"name": "관리한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 115,
+		"tid": 116,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 117,
+		"tid": 118,
+		"name": "의미한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 119,
+		"tid": 120,
+		"name": "의미한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 121,
+		"tid": 122,
+		"name": "의미한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 123,
+		"tid": 124,
+		"name": "낮다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 125,
+		"tid": 126,
+		"name": "예방효과 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 127,
+		"tid": 128,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 129,
+		"tid": 130,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 131,
+		"tid": 132,
+		"name": "사용한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 133,
+		"tid": 134,
+		"name": "입 밖으로 분출한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 135,
+		"tid": 136,
+		"name": "안에 존재할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 137,
+		"tid": 138,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 139,
+		"tid": 140,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 141,
+		"tid": 142,
+		"name": "매개체가 될 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 143,
+		"tid": 144,
+		"name": "를 통해 감염된다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 145,
+		"tid": 146,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 147,
+		"tid": 148,
+		"name": "10%를 기록했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 149,
+		"tid": 150,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 151,
+		"tid": 152,
+		"name": "중동에서 30~40%를 기록했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 153,
+		"tid": 154,
+		"name": "한국에서 20%를 기록했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 155,
+		"tid": 156,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 157,
+		"tid": 158,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 159,
+		"tid": 160,
+		"name": "비교하기 어렵다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 161,
+		"tid": 162,
+		"name": "없다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 163,
+		"tid": 164,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 165,
+		"tid": 166,
+		"name": "매년 발생한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 167,
+		"tid": 168,
+		"name": "있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 169,
+		"tid": 170,
+		"name": "비교하기 어렵다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 171,
+		"tid": 172,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 173,
+		"tid": 174,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 175,
+		"tid": 176,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 177,
+		"tid": 178,
+		"name": "다르다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 179,
+		"tid": 180,
+		"name": "제품이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 181,
+		"tid": 182,
+		"name": "권장한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 183,
+		"tid": 184,
+		"name": "0.6",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 185,
+		"tid": 186,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 187,
+		"tid": 188,
+		"name": "을 통해서 옮겨진다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 189,
+		"tid": 190,
+		"name": "5마이크로미터 이상이다.",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 191,
+		"tid": 192,
+		"name": "2~14일이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 193,
+		"tid": 194,
+		"name": "으로 직결된다고 보기 어렵다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 195,
+		"tid": 196,
+		"name": "평균 7일로 알려져 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 197,
+		"tid": 198,
+		"name": "은 낮다고 전문가들은 말한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 199,
+		"tid": 200,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 201,
+		"tid": 202,
+		"name": "국내에서 유행했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 203,
+		"tid": 204,
+		"name": "로 전파된다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 205,
+		"tid": 206,
+		"name": "다른 개념이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 207,
+		"tid": 208,
+		"name": "Incubation period",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 209,
+		"tid": 210,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 211,
+		"tid": 212,
+		"name": "유행했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 213,
+		"tid": 214,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 215,
+		"tid": 216,
+		"name": "유행했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 217,
+		"tid": 218,
+		"name": "우려가 있었다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 219,
+		"tid": 220,
+		"name": "무증상 감염 가능성을 인정했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 221,
+		"tid": 222,
+		"name": "잠복기 감염 가능성을 부인했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 223,
+		"tid": 224,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 225,
+		"tid": 226,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 227,
+		"tid": 228,
+		"name": "높다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 229,
+		"tid": 230,
+		"name": "높다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 231,
+		"tid": 232,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 233,
+		"tid": 234,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 235,
+		"tid": 236,
+		"name": "사용된다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 237,
+		"tid": 238,
+		"name": "70도가 넘는다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 239,
+		"tid": 240,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 241,
+		"tid": 242,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 243,
+		"tid": 244,
+		"name": "한다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 245,
+		"tid": 246,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 247,
+		"tid": 248,
+		"name": "에 의해 외피가 녹는다.",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 249,
+		"tid": 250,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 251,
+		"tid": 252,
+		"name": "공기 중에서",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 253,
+		"tid": 254,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 255,
+		"tid": 256,
+		"name": "를 통해 감염된다",
+		"_color": "skyblue"
+	}
+]

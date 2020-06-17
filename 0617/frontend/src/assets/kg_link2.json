@@ -1,0 +1,146 @@
+﻿[
+	{
+		"sid": 1,
+		"tid": 2,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 3,
+		"tid": 4,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 5,
+		"tid": 6,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 7,
+		"tid": 8,
+		"name": "소문이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 9,
+		"tid": 10,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 11,
+		"tid": 12,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 13,
+		"tid": 14,
+		"name": "예방효과 없다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 15,
+		"tid": 16,
+		"name": "높인다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 17,
+		"tid": 18,
+		"name": "소문이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 19,
+		"tid": 20,
+		"name": "방역 방법이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 21,
+		"tid": 22,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 23,
+		"tid": 24,
+		"name": "얻는다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 25,
+		"tid": 26,
+		"name": "불린다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 27,
+		"tid": 28,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 29,
+		"tid": 30,
+		"name": "발병했다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 31,
+		"tid": 32,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 33,
+		"tid": 34,
+		"name": "에 존재할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 35,
+		"tid": 36,
+		"name": "를 통해 침투할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 37,
+		"tid": 38,
+		"name": "을 통해 침투할 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 39,
+		"tid": 40,
+		"name": "감염될 수 있다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 41,
+		"tid": 42,
+		"name": "전염되지 않는다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 43,
+		"tid": 44,
+		"name": "살아남기 힘들다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 45,
+		"tid": 46,
+		"name": "이다",
+		"_color": "skyblue"
+	},
+	{
+		"sid": 47,
+		"tid": 48,
+		"name": "이다",
+		"_color": "skyblue"
+	}
+]
