@@ -28,13 +28,13 @@
           <v-flex height="600">
             <v-tabs vertical background-color="#c2dbde">
               <v-tab>
-                <div class="caption black--text">Option 1</div>
+                <div class="caption black--text" v-html="theme_1"></div>
               </v-tab>
               <v-tab>
-                <div class="caption">Option 1</div>
+                <div class="caption" v-html="theme_2"></div>
               </v-tab>
               <v-tab>
-                <div class="caption">Option 1</div>
+                <div class="caption" v-html="theme_3"></div>
               </v-tab>
               <v-tabs-slider color="#83aeb2"></v-tabs-slider>
               <v-tab-item>
@@ -101,7 +101,7 @@
           <!-- <label class="overline"> Node size  </label>
           <input class="overline" type="range" min="1" max="100" v-model='nodeSize' /> {{ options.nodeSize }} -->
           <label class="caption"> Force </label>
-          <input class="overline red" type="range" min="100" max="3000" v-model='force' /> {{ options.force }}
+          <input class="overline red" type="range" min="100" max="3000" v-model='force'/> {{ options.force }}
 
           <div id="app" class="overline">
             <!-- <svg @click="setZoom" class="container" :width="viewer.w" :height="viewer.h" ref="svg">
@@ -110,18 +110,18 @@
               </g>
                <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
             </svg> -->
+            
             <d3-network 
               ref='net' 
-              :net-nodes="dyn_node" 
-              :net-links="dyn_link" 
+              
               :options="options"  
               :link-cb="lcb"
               @node-click="nodeClick"  
             />
+            <!-- :net-nodes="dyn_node"  -->
             <!-- <d3-network ref='net' :net-nodes="sampleNode" :net-links="sampleLink" :options="options"  :link-cb="lcb"/> -->
           </div>
         </v-col>
-
         <v-col cols="12" md="2">
           <v-card
             color="blue-grey darken-1"
@@ -185,7 +185,6 @@
         </v-col>
       </v-row>
 
-
       <!-- 댓글(6) scatter(6) -->
       <v-row class="pl-5">
         <v-col cols="12" md="6">
@@ -222,36 +221,6 @@
                 <v-card flat
                   max-width="1000px"
                   class="mx-auto">
-                  <!-- <v-list three-line>
-                    <template v-for="(item, index) in like_order_list">
-                      <v-subheader
-                        v-if="item.header"
-                        :key="item.header"
-                        v-text="item.header"
-                      ></v-subheader>
-
-                      <v-divider
-                        v-else-if="item.divider"
-                        :key="index"
-                        :inset="item.inset"
-                      ></v-divider>
-
-                      <v-list-item
-                        v-else
-                        :key="item.title"
-                        @click=""
-                      >
-                        <v-list-item-avatar>
-                          <v-img :src="item.avatar"></v-img>
-                        </v-list-item-avatar>
-
-                        <v-list-item-content>
-                          <v-list-item-title v-html="item.title"></v-list-item-title>
-                          <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </template>
-                  </v-list> -->
                 <v-list dense class="pa-0 ma-0">
                   <template class="pa-0 ma-0" v-for="(item,index) in like_order_list">
                     <v-list-item
@@ -274,7 +243,7 @@
                             <!-- <v-list-item-subtitle v-html="item['reply']"></v-list-item-subtitle> -->
                             <v-row class="pa-0 ma-0">
                               <!-- <div v-text="item['date_time']"></div> -->
-                              <div class="pt-2 mr-2 caption">{{$moment(item.date_time).format('YYYY-MM-DD HH:MM')}}</div>
+                              <div class="pt-2 mr-2 caption">{{$moment(item.date).format('YYYY-MM-DD')}}</div>
                               <v-spacer></v-spacer>
                               <v-btn text icon color="blue lighten-2">
                                 <v-icon small>mdi-thumb-up</v-icon>
@@ -300,6 +269,56 @@
               </v-tab-item>
               <!-- 댓글순 -->
               <v-tab-item>
+                <v-card flat
+                  max-width="1000px"
+                  class="mx-auto">
+                <v-list dense class="pa-0 ma-0">
+                  <template class="pa-0 ma-0" v-for="(item,index) in reply_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    class="pa-0 ma-0"
+                    >
+                    <v-col class="pa-0 ma-0">
+                      <v-row class="pa-0 ma-0">
+                        <v-list-item-avatar class="pa-0 ma-0">
+                          <v-icon>mdi-emoticon</v-icon>
+                        </v-list-item-avatar>
+                        <v-col class="pa-0 ma-0">
+                        <v-list-item-content class="pt-2 pr-2 ma-0">
+                          
+                            <v-list-item-title class="pt-2" style="red" v-text="item['user_nick']"></v-list-item-title>
+                            
+                            <div class="caption" v-html="item['reply']"></div>
+                            <!-- <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle> -->
+                            <!-- <v-list-item-subtitle v-html="item['reply']"></v-list-item-subtitle> -->
+                            <v-row class="pa-0 ma-0">
+                              <!-- <div v-text="item['date_time']"></div> -->
+                              <div class="pt-2 mr-2 caption">{{$moment(item.date).format('YYYY-MM-DD')}}</div>
+                              <v-spacer></v-spacer>
+                              <v-btn text icon color="blue lighten-2">
+                                <v-icon small>mdi-thumb-up</v-icon>
+                              </v-btn>
+                              <div class="pt-2 caption">{{item['like_num']}}</div>
+                              
+                              <v-btn class="" text icon color="red lighten-2">
+                                <v-icon small>mdi-thumb-down</v-icon>
+                              </v-btn>
+                              <div class="pt-2 pr-3 caption">{{item['hate_num']}}</div>
+                            </v-row>
+                          </v-list-item-content>
+                        </v-col>
+                      </v-row>
+                      
+                    </v-col>
+                    
+                    </v-list-item>
+                  <v-divider :key="index"></v-divider>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- <v-tab-item>
                 <v-card flat>
                 <v-list dense shaped>
                   <template v-for="(item) in reply_order_list">
@@ -312,7 +331,7 @@
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title v-text="item['reply']"></v-list-item-title>
-                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                      <v-list-item-subtitle v-text="item['date']"></v-list-item-subtitle>
                     </v-list-item-content>
 
                     <div>
@@ -332,9 +351,59 @@
 
                 
                 </v-card>
-              </v-tab-item>
+              </v-tab-item> -->
               <!-- 공감비율순 -->
               <v-tab-item>
+                <v-card flat
+                  max-width="1000px"
+                  class="mx-auto">
+                <v-list dense class="pa-0 ma-0">
+                  <template class="pa-0 ma-0" v-for="(item,index) in like_rate_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    class="pa-0 ma-0"
+                    >
+                    <v-col class="pa-0 ma-0">
+                      <v-row class="pa-0 ma-0">
+                        <v-list-item-avatar class="pa-0 ma-0">
+                          <v-icon>mdi-emoticon</v-icon>
+                        </v-list-item-avatar>
+                        <v-col class="pa-0 ma-0">
+                        <v-list-item-content class="pt-2 pr-2 ma-0">
+                          
+                            <v-list-item-title class="pt-2" style="red" v-text="item['user_nick']"></v-list-item-title>
+                            
+                            <div class="caption" v-html="item['reply']"></div>
+                            <!-- <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle> -->
+                            <!-- <v-list-item-subtitle v-html="item['reply']"></v-list-item-subtitle> -->
+                            <v-row class="pa-0 ma-0">
+                              <!-- <div v-text="item['date_time']"></div> -->
+                              <div class="pt-2 mr-2 caption">{{$moment(item.date).format('YYYY-MM-DD')}}</div>
+                              <v-spacer></v-spacer>
+                              <v-btn text icon color="blue lighten-2">
+                                <v-icon small>mdi-thumb-up</v-icon>
+                              </v-btn>
+                              <div class="pt-2 caption">{{item['like_num']}}</div>
+                              
+                              <v-btn class="" text icon color="red lighten-2">
+                                <v-icon small>mdi-thumb-down</v-icon>
+                              </v-btn>
+                              <div class="pt-2 pr-3 caption">{{item['hate_num']}}</div>
+                            </v-row>
+                          </v-list-item-content>
+                        </v-col>
+                      </v-row>
+                      
+                    </v-col>
+                    
+                    </v-list-item>
+                  <v-divider :key="index"></v-divider>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- <v-tab-item>
                 <v-card flat>
                 <v-list dense shaped>
                   <template v-for="(item) in like_rate_order_list">
@@ -347,7 +416,7 @@
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title v-text="item['reply']"></v-list-item-title>
-                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                      <v-list-item-subtitle v-text="item['date']"></v-list-item-subtitle>
                     </v-list-item-content>
 
                     <div>
@@ -364,9 +433,59 @@
                   </template>
                 </v-list>
                 </v-card>
-              </v-tab-item>
-              <!-- 감정순 -->
+              </v-tab-item> -->
+              <!-- 감정순 --> 
               <v-tab-item>
+                <v-card flat
+                  max-width="1000px"
+                  class="mx-auto">
+                <v-list dense class="pa-0 ma-0">
+                  <template class="pa-0 ma-0" v-for="(item,index) in sent_order_list">
+                    <v-list-item
+                    :key="item['naver_news_id']"
+                    v-on:click="greet"
+                    class="pa-0 ma-0"
+                    >
+                    <v-col class="pa-0 ma-0">
+                      <v-row class="pa-0 ma-0">
+                        <v-list-item-avatar class="pa-0 ma-0">
+                          <v-icon>mdi-emoticon</v-icon>
+                        </v-list-item-avatar>
+                        <v-col class="pa-0 ma-0">
+                        <v-list-item-content class="pt-2 pr-2 ma-0">
+                          
+                            <v-list-item-title class="pt-2" style="red" v-text="item['user_nick']"></v-list-item-title>
+                            
+                            <div class="caption" v-html="item['reply']"></div>
+                            <!-- <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle> -->
+                            <!-- <v-list-item-subtitle v-html="item['reply']"></v-list-item-subtitle> -->
+                            <v-row class="pa-0 ma-0">
+                              <!-- <div v-text="item['date_time']"></div> -->
+                              <div class="pt-2 mr-2 caption">{{$moment(item.date).format('YYYY-MM-DD')}}</div>
+                              <v-spacer></v-spacer>
+                              <v-btn text icon color="blue lighten-2">
+                                <v-icon small>mdi-thumb-up</v-icon>
+                              </v-btn>
+                              <div class="pt-2 caption">{{item['like_num']}}</div>
+                              
+                              <v-btn class="" text icon color="red lighten-2">
+                                <v-icon small>mdi-thumb-down</v-icon>
+                              </v-btn>
+                              <div class="pt-2 pr-3 caption">{{item['hate_num']}}</div>
+                            </v-row>
+                          </v-list-item-content>
+                        </v-col>
+                      </v-row>
+                      
+                    </v-col>
+                    
+                    </v-list-item>
+                  <v-divider :key="index"></v-divider>
+                  </template>
+                </v-list>
+                </v-card>
+              </v-tab-item>
+              <!-- <v-tab-item>
                 <v-card flat>
                 <v-list dense shaped>
                   <template v-for="(item) in sent_order_list">
@@ -379,7 +498,7 @@
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title v-text="item['reply']"></v-list-item-title>
-                      <v-list-item-subtitle v-text="item['date_time']"></v-list-item-subtitle>
+                      <v-list-item-subtitle v-text="item['date']"></v-list-item-subtitle>
                     </v-list-item-content>
 
                     <div>
@@ -396,7 +515,7 @@
                   </template>
                 </v-list>
                 </v-card>
-              </v-tab-item>
+              </v-tab-item> -->
             </v-tabs-items>
             </v-container>
           </v-card>
@@ -415,10 +534,6 @@
       </v-row>
 
       <!-- userDF(12) -->
-      <!-- <p>{{$moment(user_info[0].user_date).format('YYYY-MM-DD')}}</p>
-      <p>{{user_info[0].user_date}}</p>
-      <p>{{ user_info[0] }}</p> -->
-      <div> {{user_info[0]}}</div>
       <v-row class="pl-5">
         <v-col cols="12" md="8">
           <v-data-table dense
@@ -446,35 +561,6 @@
               <td class="overline text-right">{{item.user_recent_sympathy}}</td>
             </tr>
           </template>
-            <!-- <template slot="items" slot-scope="props">
-              <tr class="text-center">
-                <td class="text-center">{{ props.item.name }}</td>
-                <td class="text-center">{{ $moment(props.item.user_date).format('YYYY-MM-DD') }}</td>
-              
-                <td class="caption">{{ props.item.user_total_rp }}</td>
-                <td>{{ props.item.user_response }}</td>
-                <td>{{ props.item.user_sympathy }}</td>
-                <td>{{ props.item.user_recent_write }}</td>
-                <td>{{ props.item.user_recent_delete }}</td>
-                <td>{{ props.item.user_recent_sympathy }}</td>
-        
-              </tr>
-            </template> -->
-            <!-- <template slot="items" slot-scope="props">
-              <tr>
-                <td>{{ props.item.user_nick }}</td>
-                <td class="text-xs-right">{{ props.item.user_date }}</td>
-                <td class="text-xs-right">{{ props.item.user_total_rp }}</td>
-                <td class="text-xs-right">{{ props.item.user_response }}</td>
-                <td class="text-xs-right">{{ props.item.user_sympathy }}</td>
-                <td class="text-xs-right">{{ props.item.user_recent_write }}</td>
-                <td class="text-xs-right">{{ props.item.user_recent_delete }}</td>
-                <td class="text-xs-right">{{ props.item.user_recent_sympathy }}</td>
-              </tr> -->
-            <!-- </template> -->
-            <!-- <template v-slot:item.user_history="{ item }">
-              <v-chip :color="getColor(item.user_history)" dark>{{ item.user_history }}</v-chip>
-            </template> -->
           </v-data-table>
         </v-col>
 
@@ -505,7 +591,7 @@
                 :options="selectPieOption"
                 style="width: 270px; height:200px"
               />
-              <div> {{pieChartData}}</div>
+              <!-- <div> {{pieChartData}}</div> -->
               <GChart
                 type="BarChart"
                 :data="barChartData"
@@ -547,6 +633,7 @@ import kgNode from '../assets/node_name_list.json'
 import kgList from '../assets/kg_list.json'
 import sampleNode from '../assets/node_name_list2.json'
 import sampleLink from '../assets/kg_list2.json'
+import fact_kf from '../assets/fact_knowledge_df.json'
 // import nodeNameList from '../assets/node_name_list2.json'
 import cur_comments_info_df from '../assets/cur_comments_info_df.json'
 import { GChart } from 'vue-google-charts'
@@ -643,6 +730,9 @@ export default {
     //   dyn_link_list.push(dict)
     // }
     return {
+      theme_1: '코로나19 전염',
+      theme_2: '코로나19 변이',
+      theme_3: '코로나19 위험',
       click_test_selected:[],
       clic_test_search: '',
       auto_select: ['Vuetify', 'Programming'],
@@ -785,6 +875,7 @@ export default {
           text: '누적 받은 답글 수',
           align: 'center',
           // align: 'end',
+          width: '90px',
           value: 'user_response',
           class: 'color_header overline font-weight-bold' 
         },
@@ -792,6 +883,7 @@ export default {
           text: '누적 받은 공감 수',
           align: 'center',
           // align: 'end',
+          width: '90px',
           value: 'user_sympathy',
           class: 'color_header overline font-weight-bold' 
         },
@@ -799,6 +891,7 @@ export default {
           text: '30일 내 작성 댓글 수',
           align: 'center',
           // align: 'end',
+          width: '100px',
           value: 'user_recent_write' ,
           class: 'color_header overline font-weight-bold'
         },
@@ -910,6 +1003,7 @@ export default {
       user_card_date:'',
       user_card_nick:'',
       user_card_text:'',
+      fact_kf: fact_kf
       // dyn_node_list: dyn_node,
       // dyn_link_list: dyn_link
       // axios_list: [],

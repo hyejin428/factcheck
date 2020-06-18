@@ -65,7 +65,35 @@ connection.connect(function (err) {
 // });
 
 app.get('/api/data/like', function (req,res) {
-  const sql = "SELECT * from replies ORDER BY like_num DESC" 
+  const sql = "SELECT * from users ORDER BY like_num DESC" 
+  connection.query(sql , function (error, results, fields) {
+      if(error) console.log(error);
+      res.send(results);
+      // res.json({
+      //     success : true,
+      //     data : results
+      // })
+      
+    }
+  );
+});
+
+// app.get('/api/data/like', function (req,res) {
+//   const sql = "SELECT * from replies ORDER BY like_num DESC" 
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+//       // res.json({
+//       //     success : true,
+//       //     data : results
+//       // })
+      
+//     }
+//   );
+// });
+
+app.get('/api/data/like', function (req,res) {
+  const sql = "SELECT * from users ORDER BY like_num DESC" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -79,7 +107,7 @@ app.get('/api/data/like', function (req,res) {
 });
 
 app.get('/api/data/reply', function (req,res) {
-  const sql = "SELECT * from replies ORDER BY re_reply_num DESC" 
+  const sql = "SELECT * from users ORDER BY re_reply_num DESC" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -93,7 +121,7 @@ app.get('/api/data/reply', function (req,res) {
 });
 
 app.get('/api/data/like_rate', function (req,res) {
-  const sql = "SELECT * from replies ORDER BY (like_num/like_num+hate_num) DESC" 
+  const sql = "SELECT * from users ORDER BY (like_num/like_num+hate_num) DESC" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -107,7 +135,7 @@ app.get('/api/data/like_rate', function (req,res) {
 });
 
 app.get('/api/data/sent', function (req,res) {
-  const sql = "SELECT * from replies ORDER BY sentiment DESC" 
+  const sql = "SELECT * from users ORDER BY sentiment DESC" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -120,8 +148,10 @@ app.get('/api/data/sent', function (req,res) {
   );
 });
 
+
+
 app.get('/api/data/node', function (req,res) {
-  const sql = "select * from node_test where name in ('코로나19', '바이러스','원인', '복제', '고양이','백신','감염');" 
+  const sql = "select * from node_test;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -146,11 +176,12 @@ app.get('/api/data/link', function (req,res) {
 
 
 app.get('/api/data/user_info', function (req,res) {
-  const sql = "select user_nick,user_profile_date,user_total_rp,user_response,"
-  sql = sql + "user_sympathy,user_recent_write,user_recent_delete,user_recent_sympathy,"
-  sql = sql + "user_recent_sympathy_rate,user_recent_delete_rate,"
-  sql = sql + "user_history_neg,user_history_neu,user_history_pos,user_history_nan from users;" 
-  connection.query(sql , function (error, results, fields) {
+  // const sql = "select user_nick,user_profile_date,user_total_rp,user_response,"
+  // sql = sql + "user_sympathy,user_recent_write,user_recent_delete,user_recent_sympathy,"
+  // sql = sql + "user_recent_sympathy_rate,user_recent_delete_rate,"
+  // sql = sql + "user_history_neg,user_history_neu,user_history_pos,user_history_nan from users;"
+  const sql2 = "select * from users;" 
+  connection.query(sql2 , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
       
