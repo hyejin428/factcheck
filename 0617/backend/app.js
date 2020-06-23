@@ -175,19 +175,53 @@ app.get('/api/data/link', function (req,res) {
 });
 
 
+// app.get('/api/data/user_info', function (req,res) {
+//   // const sql = "select user_nick,user_profile_date,user_total_rp,user_response,"
+//   // sql = sql + "user_sympathy,user_recent_write,user_recent_delete,user_recent_sympathy,"
+//   // sql = sql + "user_recent_sympathy_rate,user_recent_delete_rate,"
+//   // sql = sql + "user_history_neg,user_history_neu,user_history_pos,user_history_nan from users;"
+//   const sql2 = "select * from users;" 
+//   connection.query(sql2 , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+      
+//     }
+//   );
+// });
+
 app.get('/api/data/user_info', function (req,res) {
+  var rank_sql = "SELECT *, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY like_num),2)) like_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY hate_num),2)) hate_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_total_rp),2)) user_total_rp_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_response),2)) user_response_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_sympathy),2)) user_sympathy_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_recent_write),2)) user_recent_write_rank, "
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_recent_delete),2)) user_recent_delete_rank, " 
+  rank_sql = rank_sql+"FLOOR(100*ROUND(PERCENT_RANK() OVER (ORDER BY user_recent_sympathy),2)) user_recent_sympathy_rank "
+  rank_sql = rank_sql+"FROM users;"
   // const sql = "select user_nick,user_profile_date,user_total_rp,user_response,"
   // sql = sql + "user_sympathy,user_recent_write,user_recent_delete,user_recent_sympathy,"
   // sql = sql + "user_recent_sympathy_rate,user_recent_delete_rate,"
   // sql = sql + "user_history_neg,user_history_neu,user_history_pos,user_history_nan from users;"
   const sql2 = "select * from users;" 
-  connection.query(sql2 , function (error, results, fields) {
+  connection.query(rank_sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
       
     }
   );
 });
+
+// app.get('/api/data/sen_link', function (req,res) {
+//   const sql = "select * from sen_link;" 
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+      
+//     }
+//   );
+// });
 
 
 // app.get('/',function(req,res){
