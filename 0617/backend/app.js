@@ -27,10 +27,10 @@ app.use('/users', usersRouter);
 
 
 var connection = mysql.createConnection({
-  host: 'localhost',
+  host: '210.107.206.210',
   port: 3306,
   user: 'root',
-  password: 'hjhj0428',
+  password: 'root !Kh@n14HciLab%',
   database: 'd3'
 });
 
