@@ -24,7 +24,7 @@
           </v-bottom-navigation> -->
 
           <!-- <h3 class="body-1 pa-3">기사 모음</h3> -->
-          <v-card width="350">
+          <v-card width="350" height="200">
           <v-flex>
             <v-tabs vertical background-color="#c2dbde">
               <v-tab>
@@ -55,12 +55,12 @@
                 </v-tabs>
                 <v-container
                   id="scroll-target"
-                  style="max-height: 400px"
+                  style="max-height: 270px"
                   class="overflow-y-auto"
                 >
                   <v-tabs-items v-model="tab"
                     v-scroll:#scroll-target="onScroll"
-                    style="height: 600px">
+                    style="height: 270px">
                     <v-tab-item
                       v-for="(item, i) in lineTest"
                         :key="i"
@@ -97,10 +97,10 @@
             outlined
             dense
           ></v-combobox> -->
-          <v-card class="pa-5" outlined height="435" width="500">
+          <v-card class="pa-5 ml-0" outlined height="300" min-width="365" max-width="375">
           <!-- <label class="overline"> Node size  </label>
           <input class="overline" type="range" min="1" max="100" v-model='nodeSize' /> {{ options.nodeSize }} -->
-          <label class="caption"> Force </label>
+          <label class="caption"> Zoom </label>
           <input class="overline red" type="range" min="100" max="3000" v-model='force'/> {{ options.force }}
           
           <div id="app" class="overline">
@@ -119,7 +119,8 @@
                 :options="options"  
                 :link-cb="lcb"
                 @node-click="nodeClick"  
-              />
+            />
+          
             <!-- :net-nodes="dyn_node"  -->
             <!-- <d3-network ref='net' :net-nodes="sampleNode" :net-links="sampleLink" :options="options"  :link-cb="lcb"/> -->
           </div>
@@ -127,7 +128,7 @@
         </v-col>
 
         <v-col cols="12" md="3">
-          <v-card height="435" outlined>
+          <v-card height="300" outlined>
             <v-tabs background-color="#c2dbde" centered height="30px">
             <v-tabs-slider color="#83aeb2"></v-tabs-slider>
             <v-tab width="300" class="caption black--text">Fact Check</v-tab>
@@ -136,15 +137,16 @@
                 class="mx-auto pa-0 mt-2"
                 max-width="250"
                 min-width="250"
+                height="230"
                 outlined
               >
           
                 <v-card-title class="overline">
-                  [팩트체크]"신종 코로나, 5일 생존하는 공기감염병"…사실은?
+                  [팩트체크K] 신종코로나, ‘공기로 전파’…전문가 의견들어보니
                 </v-card-title>
             
                 <v-card-subtitle class="caption">
-                  한편, 최 위원장도 앞서 말한대로 "(바이러스가) 일반 대기에서는 사멸한다"며 공기 감염과는 선을 그었다. 그는 마스크 착용과 관련해서도 "특별한 질병 없이 일상생활을 영위하는 정상 성인이 야외활동을 할 때 모든 상황에서 반드시 마스크를 써야 하는 것은 아니다"라고 설명했다. 
+                  지난 8일 중국 상하이시가 기자회견을 통해 신종 코로나바이러스의 전파 경로 중 '에어로졸(공기 중에 부유할 수 있는 미세한 입자) 전파' 즉, 공기 중 전파를 언급했습니다. 상하이시 민정국 청췬 부국장은 "현재 확정적인 신종 코로나 감염 주요 경로는 직접 전파, 에어로졸 전파, 접촉을 통한 전파"라고 밝혔습니다.
                 </v-card-subtitle>
             
               <!-- <v-card-actions>  
@@ -182,7 +184,7 @@
             댓글 모음
           </h3> -->
 
-          <v-card max-height="500">
+          <v-card max-height="400">
             <v-tabs
             v-model="tab2"
             background-color="#c2dbde"
@@ -200,19 +202,19 @@
 
             <v-container
             id="scroll-target"
-            style="max-height: 400px"
+            style="max-height: 355px"
             class="overflow-y-auto"
             >
             <v-tabs-items v-model="tab2"
               v-scroll:#scroll-target="onScroll"
-              style="height: 500px">
+              style="height: 350px">
               <!-- 좋아요순 -->
               <v-tab-item>
                 <v-card flat
-                  max-width="1000px"
+                  max-width="800px"
                   class="mx-auto">
                 <v-list dense class="pa-0 ma-0">
-                  <v-list-item-group v-model="item" color="primary">
+                  <v-list-item-group v-model="item" color="#83AEB2">
                   <template class="pa-0 ma-0" v-for="(item,index) in like_order_list">
                    
                       <v-list-item
@@ -484,29 +486,27 @@
 
         <v-col cols="12" md="4">
           <v-row>
-            <v-card class="pr-10 ml-2" outlined height="220px" width="380px" align="center">
+            <v-card class="pr-10 ml-2" outlined height="190px" width="370px" align="center">
               <GChart id="gg"
                 type="ScatterChart"
                 :data="chartData"
                 :options="scatter_chartOptions"
                 :events="chartEvents"
                 ref="gChart"
-                style="height: 190px; width: 370px;"
+                style="height: 160px; width: 360px;"
               />    
             </v-card>
            
           </v-row>
           <v-row>
-            <v-card class="ml-2 mt-2" outlined width="380px" align="center">
+            <v-card class="ml-2 mt-2" outlined width="370px" align="center">
             <d3-network
-              :class="reply_kg"
               ref='net2' 
-              :net-nodes="node_0623" 
-              :net-links="kg_0623"
+              :net-nodes="nodenode"
+              :net-links="linklink"
               :options="comment_kg_options"  
               :link-cb="lcb"
-              :fontSize="1"
-              @node-click="nodeClick"  
+              @node-click="nodeClick"
             />
             </v-card>
           </v-row>
@@ -514,7 +514,7 @@
         </v-col>
         
         <v-col cols="12" md="3">
-          <v-card height="435" outlined>
+          <v-card height="385" outlined>
             <v-tabs background-color="#c2dbde" centered height="30px">
             <v-tabs-slider color="#83aeb2"></v-tabs-slider>
             <v-tab width="300" class="caption black--text">Fact Check</v-tab>
@@ -565,15 +565,15 @@
       <!-- userDF(12) -->
       <v-row class="pl-5">
         <v-col cols="12" md="9">
-          <v-card width="1155" class="mr-0">
+          <v-card width="1130" class="mr-0">
           <v-data-table dense
-            max-height="400px"
-            min-height="400px"
-            width="2500px"
+            max-height="270px"
+            min-height="270px"
+            width="1130px"
             v-model="selectedRows"
             :headers="headers2"
             :items="user_info"
-            :items-per-page="13"
+            :items-per-page="8"
             class="elevation-1"
           >
           <template v-slot:item="{ item }">
@@ -596,23 +596,26 @@
           </v-card>
         </v-col>
 
-        <v-col cols="12" md="3">
+        <v-col cols="12" md="3" class="ma-0">
 
           <v-card
             class="mx-auto ml-0"
-            max-width="300"
-            max-height="420px"
-            min-height="420px"
+            max-width="265px"
+            min-width="265px"
+            max-height="300px"
+            min-height="300px"
             outlined
           >
-            <v-list-item three-line>
+            <!-- <v-list-item three-line height="50px">
               <v-list-item-content>
                 <div class="overline mb-4">{{ $moment(user_card_date).format('YYYY-MM-DD')}}부터 활동 시작</div>
                 <v-list-item-title class="h4 mb-1"> {{user_card_nick}} </v-list-item-title>
-                <!-- <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle> -->
+                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
               </v-list-item-content>
 
-            </v-list-item>
+            </v-list-item> -->
+            <div class="overline ma-4">From {{ $moment(user_card_date).format('YYYY-MM-DD')}} activity start</div>
+            <div class="h4 ma-4"> {{user_card_nick}} </div>
             <!-- <v-spacer></v-spacer> -->
             <v-divider class="mx-4"></v-divider>
             <!-- align="center" -->
@@ -621,7 +624,7 @@
                 type="PieChart"
                 :data="pieChartData"
                 :options="selectPieOption"
-                style="width: 240px; height:170px"
+                style="width: 220px; height:90px"
               />
             <!-- </div> -->
               <!-- <div> {{pieChartData}}</div> -->
@@ -631,7 +634,7 @@
                 type="BarChart"
                 :data="barChartData"
                 :options="barChartOptions"
-                style="width: 240px; height: 130px;"
+                style="width: 220px; height: 80px;"
               />
             </v-card>
 
@@ -677,6 +680,11 @@ import cur_comments_info_df from '../assets/cur_comments_info_df.json'
 import { GChart } from 'vue-google-charts'
 import kg_0623 from '../assets/0623_kg_list.json'
 import node_0623 from '../assets/0623_node_name_list.json'
+import reply_node from '../assets/reply_node_sample2.json'
+import reply_link from '../assets/reply_link_sample2.json'
+import nodenode from '../assets/node.json'
+import linklink from '../assets/link.json'
+
 // import VueGoogleCharts from 'vue-google-charts'
 
 export default {
@@ -780,6 +788,10 @@ export default {
     //   dyn_link_list.push(dict)
     // }
     return {
+      nodenode: nodenode,
+      linklink: linklink,
+      reply_node: reply_node,
+      reply_link: reply_link,
       node_0623: node_0623,
       kg_0623: kg_0623,
       theme_1: '코로나19 전염',
@@ -872,7 +884,7 @@ export default {
           vAxis: {title: 'sentiment'},
           // legend: {position: 'top', textStyle: { fontSize: 10}},
           
-          chartArea: {width:'95%',height:'90%'}
+          chartArea: {width:'90%',height:'90%'}
         },
         hAxis: {title: 'write time'},
         vAxis: {title: 'sentiment'},
@@ -905,7 +917,7 @@ export default {
       
       headers2:[
         {
-          text: '닉네임',
+          text: 'Nickname',
           align: 'center',
           soratble: false,
           value: 'user_nick',
@@ -913,14 +925,14 @@ export default {
           width: '110px'
         },
         { 
-          text: '활동 시작날짜',
+          text: 'Start Date',
           align: 'center',
           value: 'user_date',
           class: 'color_header overline font-weight-bold',
           width: '100px'
         },
         { 
-          text: '누적 작성 댓글 개수',
+          text: 'Total Write',
           align: 'center',
           // align: 'end',
           width: '90px',
@@ -928,7 +940,7 @@ export default {
           class: 'color_header overline font-weight-bold' 
           },
         { 
-          text: '누적 받은 답글 수',
+          text: 'Total ReReply',
           align: 'center',
           // align: 'end',
           width: '95px',
@@ -936,7 +948,7 @@ export default {
           class: 'color_header overline font-weight-bold' 
         },
         { 
-          text: '누적 받은 공감 수',
+          text: 'Total Sympathy',
           align: 'center',
           // align: 'end',
           width: '95px',
@@ -944,24 +956,24 @@ export default {
           class: 'color_header overline font-weight-bold' 
         },
         { 
-          text: '30일 내 작성 댓글 수',
+          text: 'Recent Write',
           align: 'center',
           // align: 'end',
-          width: '95px',
+          width: '100px',
           value: 'user_recent_write' ,
           class: 'color_header overline font-weight-bold'
         },
         { 
-          text: '30일 내 삭제 댓글 수',
+          text: 'Recent Delete',
           align: 'center',
           // align: 'end',
-          width: '80px',
+          width: '85px',
           value: 'user_recent_delete',
           class: 'color_header overline font-weight-bold' 
         },
-        { text: '30일 내 공감 댓글 수', 
+        { text: 'Recent Sympathy', 
           align: 'center',
-          width: '80px',
+          width: '85px',
           value: 'user_recent_sympathy',
           class: 'color_header overline font-weight-bold'  
         },
@@ -973,6 +985,7 @@ export default {
       // links: kgList,
       nodeSize:10,
       force : 500,
+      force2 : 600,
       comment_force: 100,
       canvas:false,
       offsetTop: 0,
@@ -1031,10 +1044,9 @@ export default {
           1: {color: 'transparent'}
         }
       },
-      pieChartData:[['',''],['긍정',60],['중립',24],['부정',16]],
-      selectPie:[['',''],['긍정',60],['중립',24],['부정',16]],
+      pieChartData:[['',''],['positive',60],['neutral',24],['negative',16]],
+      selectPie:[['',''],['positive',60],['neutral',24],['negative',16]],
       selectPieOption:{
-        legend: '긍정',
         // pieSliceText:'none',
         slices:{
           // 0: {color: '#9CBC5C'}, //긍정
@@ -1047,7 +1059,7 @@ export default {
           1: {color: '#F9D87B'}, //중립
           2: {color: '#CD7775'}  //부정
         },
-        chartArea:{left:50, width:'100%',height:'100%'}
+        chartArea:{left:20, width:'80%',height:'100%'}
       },
       barChartOptions:{
         legend: {position: 'none'},
@@ -1064,14 +1076,14 @@ export default {
       user_info: [],
       barChartData:[
         ['aa','비율'],
-        ['최근 30일간 공감율', 0.48],
-        ['최근 30일간 삭제율', 0.37]
+        ['Recent Sympathy', 0.48],
+        ['Recent Delete', 0.37]
         
         ],
       barChartOption:{},
       user_card_date:'',
       user_card_nick:'',
-      user_card_text:'',
+      user_card_text:''
       // fact_kf: fact_kf
       // dyn_node_list: dyn_node,
       // dyn_link_list: dyn_link
@@ -1114,23 +1126,24 @@ export default {
     options(){
       return{
         force: this.force,
-        size:{ w:300, h:400},
+        size:{ w:320, h:250},
         nodeSize: this.nodeSize,
         nodeLabels: true,
         linkLabels: true,
         canvas: this.canvas,
         linkWidth:2,
-        // offset:{x:0, y:-100}
+        
       }
     },
     comment_kg_options(){
       return{
-        force: 400,
-        size:{ w:400, h:200},
+        force: this.force2,
+        size:{ w:400, h:180},
         nodeSize: this.nodeSize,
         nodeLabels: true,
         linkLabels: true,
         canvas: this.canvas,
+        // offset:{x:0, y:50},
         linkWidth:2
       }
     },
@@ -1274,21 +1287,23 @@ export default {
     // greet: function (event) {
     greet(item){
       alert('Hello!'+item.reply)
+      // :style="{background: item.isSelected ? '#e0e8e8' : ''}"
+      // var id = item.naver_news_comments_id
+      
 
-      var id = item.naver_news_comments_id
-      // var idx =1000
-      alert('hello'+typeof(id))
-      // alert(typeof(this.data_table[3][2]))
-      alert(JSON.stringify(this.data_table[3][2]))
-      alert(typeof(JSON.stringify(this.data_table[3][2])))
-      for(let i =1; i<this.chartData.length; i++){
-        if(parseInt(JSON.stringify(this.data_table[i][0]))==id){
-          // idx = i
-        }
-      }
-      // const table = this.$refs.gChart.chartObjesct;
-      this.$refs.gChart.setSelection({row:3,column:3});
-      alert('hello')
+
+      // alert('hello'+typeof(id))
+      
+      // alert(JSON.stringify(this.data_table[3][2]))
+      // alert(typeof(JSON.stringify(this.data_table[3][2])))
+      // for(let i =1; i<this.chartData.length; i++){
+      //   if(parseInt(JSON.stringify(this.data_table[i][0]))==id){
+      //     // idx = i
+      //   }
+      // }
+      // // const table = this.$refs.gChart.chartObjesct;
+      // this.$refs.gChart.setSelection({row:3,column:3});
+      // alert('hello')
 
       // const chartchart = this.$refs.gChart.chartObject;
       // this.$refs.gChart.chartObject.setSelection([{row:0,column:0}]);
