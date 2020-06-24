@@ -214,7 +214,7 @@
                   max-width="800px"
                   class="mx-auto">
                 <v-list dense class="pa-0 ma-0">
-                  <v-list-item-group v-model="item" color="#83AEB2">
+                  <v-list-item-group v-model="item" color="#52777A">
                   <template class="pa-0 ma-0" v-for="(item,index) in like_order_list">
                    
                       <v-list-item
@@ -584,9 +584,9 @@
             >
               <td class="overline">{{item.user_nick}}</td>
               <td class="overline text-center">{{ $moment(item.user_profile_date).format('YYYY-MM-DD')}}</td>
-              <td class="overline text-right">상위 {{item.user_total_rp_rank}}%</td>
-              <td class="overline text-right">상위 {{item.user_response_rank}}%</td>
-              <td class="overline text-right">상위 {{item.user_sympathy_rank}}%</td>
+              <td class="overline text-right">{{item.user_total_rp}}</td>
+              <td class="overline text-right">{{item.user_response}}</td>
+              <td class="overline text-right">{{item.user_sympathy}}</td>
               <td class="overline text-right">{{item.user_recent_write}}</td>
               <td class="overline text-right">{{item.user_recent_delete}}</td>
               <td class="overline text-right">{{item.user_recent_sympathy}}</td>
@@ -932,7 +932,7 @@ export default {
           width: '100px'
         },
         { 
-          text: 'Total Write',
+          text: 'Total comment',
           align: 'center',
           // align: 'end',
           width: '90px',
@@ -940,7 +940,7 @@ export default {
           class: 'color_header overline font-weight-bold' 
           },
         { 
-          text: 'Total ReReply',
+          text: 'Total reply',
           align: 'center',
           // align: 'end',
           width: '95px',
@@ -948,7 +948,7 @@ export default {
           class: 'color_header overline font-weight-bold' 
         },
         { 
-          text: 'Total Sympathy',
+          text: 'Total sympathy',
           align: 'center',
           // align: 'end',
           width: '95px',
@@ -956,7 +956,7 @@ export default {
           class: 'color_header overline font-weight-bold' 
         },
         { 
-          text: 'Recent Write',
+          text: 'Recent comment',
           align: 'center',
           // align: 'end',
           width: '100px',
@@ -964,7 +964,7 @@ export default {
           class: 'color_header overline font-weight-bold'
         },
         { 
-          text: 'Recent Delete',
+          text: 'Recent delete',
           align: 'center',
           // align: 'end',
           width: '85px',
