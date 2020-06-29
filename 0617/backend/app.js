@@ -27,10 +27,11 @@ app.use('/users', usersRouter);
 
 
 var connection = mysql.createConnection({
-  host: '210.107.206.210',
+  // host: '210.107.206.210',
+  host: 'localhost',
   port: 3306,
   user: 'root',
-  password: 'root !Kh@n14HciLab%',
+  password: 'hjhj0428',
   database: 'd3'
 });
 
@@ -65,7 +66,7 @@ connection.connect(function (err) {
 // });
 
 app.get('/api/data/like', function (req,res) {
-  const sql = "SELECT * from users ORDER BY like_num DESC" 
+  const sql = "SELECT * from users ORDER BY like_num DESC;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -78,36 +79,18 @@ app.get('/api/data/like', function (req,res) {
   );
 });
 
-// app.get('/api/data/like', function (req,res) {
-//   const sql = "SELECT * from replies ORDER BY like_num DESC" 
-//   connection.query(sql , function (error, results, fields) {
-//       if(error) console.log(error);
-//       res.send(results);
-//       // res.json({
-//       //     success : true,
-//       //     data : results
-//       // })
-      
-//     }
-//   );
-// });
-
-app.get('/api/data/like', function (req,res) {
-  const sql = "SELECT * from users ORDER BY like_num DESC" 
+app.get('/api/data/fact', function (req,res) {
+  const sql = "SELECT * from fact;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
-      // res.json({
-      //     success : true,
-      //     data : results
-      // })
-      
     }
   );
 });
+
 
 app.get('/api/data/reply', function (req,res) {
-  const sql = "SELECT * from users ORDER BY re_reply_num DESC" 
+  const sql = "SELECT * from users ORDER BY re_reply_num DESC;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -121,7 +104,7 @@ app.get('/api/data/reply', function (req,res) {
 });
 
 app.get('/api/data/like_rate', function (req,res) {
-  const sql = "SELECT * from users ORDER BY (like_num/like_num+hate_num) DESC" 
+  const sql = "SELECT * from users ORDER BY (like_num/like_num+hate_num) DESC;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -135,7 +118,7 @@ app.get('/api/data/like_rate', function (req,res) {
 });
 
 app.get('/api/data/sent', function (req,res) {
-  const sql = "SELECT * from users ORDER BY sentiment DESC" 
+  const sql = "SELECT * from users ORDER BY sentiment DESC;" 
   connection.query(sql , function (error, results, fields) {
       if(error) console.log(error);
       res.send(results);
@@ -150,31 +133,51 @@ app.get('/api/data/sent', function (req,res) {
 
 
 
-app.get('/api/data/node', function (req,res) {
-  const sql = "select * from node_test;" 
-  connection.query(sql , function (error, results, fields) {
-      if(error) console.log(error);
-      res.send(results);
-      // res.json({
-      //     success : true,
-      //     data : results
-      // })
+// app.get('/api/data/node', function (req,res) {
+//   const sql = "select * from node_test;" 
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+//       // res.json({
+//       //     success : true,
+//       //     data : results
+//       // })
       
-    }
-  );
-});
+//     }
+//   );
+// });
 
-app.get('/api/data/link', function (req,res) {
-  const sql = "select * from link_test where sid in ('483','526','866','1012','1155') and tid in ('483','526','866','1012','1155');" 
-  connection.query(sql , function (error, results, fields) {
-      if(error) console.log(error);
-      res.send(results);
+// app.get('/api/data/link', function (req,res) {
+//   const sql = "select * from link_test where sid in ('483','526','866','1012','1155') and tid in ('483','526','866','1012','1155');" 
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
       
-    }
-  );
-});
+//     }
+//   );
+// });
 
 
+
+
+// app.get('/api/data/scatter', function (req,res) {
+//   const sql = "select date, like_num, hate_num, re_reply_num, sentiment from users;"
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+//     }
+//   );
+// });
+
+// app.get('/api/data/scatter_table', function (req,res) {
+//   const sql = "select date, sentiment, naver_news_comments_id from users;"
+//   connection.query(sql , function (error, results, fields) {
+//       if(error) console.log(error);
+//       res.send(results);
+      
+//     }
+//   );
+// });
 // app.get('/api/data/user_info', function (req,res) {
 //   // const sql = "select user_nick,user_profile_date,user_total_rp,user_response,"
 //   // sql = sql + "user_sympathy,user_recent_write,user_recent_delete,user_recent_sympathy,"
